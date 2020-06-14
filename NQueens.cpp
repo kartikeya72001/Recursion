@@ -5,7 +5,10 @@ int counter=0;
 void print(int n) {
     for (int i = 0;i <= n-1; i++) {
         for (int j = 0;j <= n-1; j++) {
-            cout <<grid[i][j]<< " ";
+            if(grid[i][j]==1)
+                cout <<"Q ";
+            else
+                cout<<"_ ";
         }
         cout<<endl;
     }
@@ -35,7 +38,7 @@ bool solve (int n, int row) {
     if (n == row) {
         print(n);
 		counter++;
-        return true;
+        return false;
     }
     bool res = false;
     for (int i = 0;i <=n-1;i++) {
@@ -57,11 +60,10 @@ int main()
                 grid[i][j] = 0;
             }
         }
-        bool res = solve(n, 0);
-        if(res == false) {
+        solve(n, 0);
+        if(counter == 0) {
             cout << "No Cases Possible" << endl;
         } else {
-            cout << endl;
             cout<<counter<<endl;
         }
   return 0;
