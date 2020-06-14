@@ -36,6 +36,7 @@ bool solveSudoku(int mat[][9], int i, int j, int n)
 			}
 			cout<<endl;
 		}
+		cout<<endl<<endl;
 		return false;
 	}
 
@@ -45,7 +46,7 @@ bool solveSudoku(int mat[][9], int i, int j, int n)
 		return solveSudoku(mat,i,j+1,n);
 
 	//Main Recursion
-	for(int num =1;num<=n;num++)
+	for(int num = 1;num<=n;num++)
 	{
 		if(placement(mat,i,j,n,num))
 		{
@@ -64,14 +65,23 @@ int main()
 {
 	int n;
 	cin>>n;
-	int mat[9][9] = {0};
-	for(int i=0;i<n;i++)
-	{
-		for(int j=0;j<n;j++)
-		{
-			cin>>mat[i][j];
-		}
-	}
+	// int mat[9][9] = {0};
+	// for(int i=0;i<n;i++)
+	// {
+	// 	for(int j=0;j<n;j++)
+	// 	{
+	// 		cin>>mat[i][j];
+	// 	}
+	// }
+	int mat[9][9] = { {3, 0, 6, 5, 0, 8, 4, 0, 0},
+			         {5, 2, 0, 0, 0, 0, 0, 0, 0},
+			         {0, 8, 7, 0, 0, 0, 0, 3, 1},
+			         {0, 0, 3, 0, 1, 0, 0, 8, 0},
+			         {9, 0, 0, 0, 6, 3, 0, 0, 5},
+			         {0, 5, 0, 0, 9, 0, 6, 0, 0},
+			         {1, 3, 0, 0, 0, 0, 2, 0, 0},
+			         {0, 0, 0, 0, 0, 0, 0, 7, 4},
+			         {0, 0, 5, 2, 0, 0, 3, 0, 0} };
 	cout<<endl<<endl;
 	solveSudoku(mat,0,0, n);
 	return 0;
