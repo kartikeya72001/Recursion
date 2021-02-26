@@ -1,4 +1,5 @@
 #include<iostream>
+#include<stdlib.h>
 using namespace std;
 void merge(int arr[],int s,int e)
 {
@@ -6,7 +7,7 @@ void merge(int arr[],int s,int e)
 	int i=s;
 	int j = mid+1;
 	int k = s;
-	int a[1000000];
+	int a[1000];
 
 	while(i<=mid && j<=e)
 	{
@@ -41,10 +42,10 @@ int main()
 {
 	int n;
 	cin>>n;
-	int arr[1000000];
+	int arr[10000];
 	for(int i=0;i<n;i++)
 	{
-		cin>>arr[i];
+		arr[i] = rand();
 	}
 	mergeSort(arr,0,n-1);
 	for(int i=0;i<n;i++)

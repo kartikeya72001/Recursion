@@ -1,4 +1,4 @@
-#include <bits/stdc++.h> 
+#include <bits/stdc++.h>
 using namespace std;
 
 void swap(int* a, int* b)
@@ -24,17 +24,6 @@ int partition (int arr[], int low, int high)
 	return (i + 1);
 }
 
-void quickSort(int arr[], int low, int high)
-{
-	if (low < high)
-	{
-		int pi = partition(arr, low, high);
-
-		quickSort(arr, low, pi - 1);
-		quickSort(arr, pi + 1, high);
-	}
-}
-
 void printArray(int arr[], int size)
 {
 	int i;
@@ -43,10 +32,20 @@ void printArray(int arr[], int size)
 	cout << endl;
 }
 
+void quickSort(int arr[], int low, int high)
+{
+	if (low < high)
+	{
+		int pi = partition(arr, low, high);
+		quickSort(arr, low, pi - 1);
+		quickSort(arr, pi + 1, high);
+	}
+}
+
 // Driver Code
 int main()
 {
-	int arr[] = {10, 7, 8, 9, 1, 5};
+	int arr[] = {11,17,13,26,40,53,6,76,28,93,33,83,71,88,19,84,59,32,64,92};
 	int n = sizeof(arr) / sizeof(arr[0]);
 	quickSort(arr, 0, n - 1);
 	cout << "Sorted array: \n";
